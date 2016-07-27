@@ -8,5 +8,8 @@
 </ul>
 
 <div *ngIf="selectedHero">
-  <my-hero-detail [hero]="selectedHero"></my-hero-detail>
+  <h2>
+    {{selectedHero.name | uppercase}} is my hero
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
 </div>
