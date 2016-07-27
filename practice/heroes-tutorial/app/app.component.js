@@ -9,13 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var hero_detail_component_1 = require('app/hero-detail.component');
-var hero_1 = require('app/hero');
+var hero_detail_component_1 = require('./hero-detail.component');
+var hero_service_1 = require('./hero.service');
 var AppComponent = (function () {
-    function AppComponent() {
-        this.heroes = hero_1.HEROES;
+    function AppComponent(heroService) {
+        this.heroService = heroService;
         this.title = 'Tour of Heroes';
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.getHeroes();
+    };
+    AppComponent.prototype.getHeroes = function () {
+        var _this = this;
+        this.heroService.getHeroes().then(function (heroes) { return _this.heroes = heroes; });
+    };
     AppComponent.prototype.onSelect = function (hero) {
         this.selectedHero = hero;
     };
@@ -24,9 +31,10 @@ var AppComponent = (function () {
             selector: 'my-app',
             templateUrl: 'app/app.html',
             styleUrls: ['app/styles.css'],
-            directives: [hero_detail_component_1.HeroDetailComponent]
+            directives: [hero_detail_component_1.HeroDetailComponent],
+            providers: [hero_service_1.HeroService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [hero_service_1.HeroService])
     ], AppComponent);
     return AppComponent;
 }());
