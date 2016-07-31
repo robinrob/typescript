@@ -7,7 +7,7 @@ import { HeroService } from './hero.service';
 @Component({
     selector: 'my-hero-detail',
     templateUrl: 'app/hero-detail.component.html',
-    styleUrls: ['styles.css']
+    styleUrls: ['styles.css', 'app/hero-detail.component.css'],
 })
 
 export class HeroDetailComponent implements OnInit, OnDestroy {
