@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import * as _ from 'lodash';
+//import * as _ from 'lodash';
 
 import { HEROES } from './mock-heroes';
 
@@ -11,6 +11,7 @@ export class HeroService {
     }
 
     getHero(id) {
-        return Promise.resolve(_.find(HEROES, ['id', id]))
+        return this.getHeroes()
+            .then(heroes => heroes.find(hero => hero.id === id));
     }
 }

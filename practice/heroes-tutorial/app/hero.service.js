@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var _ = require('lodash');
+//import * as _ from 'lodash';
 var mock_heroes_1 = require('./mock-heroes');
 var HeroService = (function () {
     function HeroService() {
@@ -18,7 +18,8 @@ var HeroService = (function () {
         return Promise.resolve(mock_heroes_1.HEROES);
     };
     HeroService.prototype.getHero = function (id) {
-        return Promise.resolve(_.find(mock_heroes_1.HEROES, ['id', id]));
+        return this.getHeroes()
+            .then(function (heroes) { return heroes.find(function (hero) { return hero.id === id; }); });
     };
     HeroService = __decorate([
         core_1.Injectable(), 
