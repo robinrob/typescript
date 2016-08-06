@@ -9,26 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var hero_service_1 = require('./hero.service');
-require('./rxjs-extensions');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Tour of Heroes';
+var http_1 = require('@angular/http');
+var HeroSearchService = (function () {
+    function HeroSearchService(http) {
+        this.http = http;
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-heroes',
-            templateUrl: 'app/app.component.html',
-            styleUrls: ['styles.css', 'app/app.component.css'],
-            directives: [router_1.ROUTER_DIRECTIVES],
-            providers: [
-                hero_service_1.HeroService
-            ]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    HeroSearchService.prototype.search = function (term) {
+        return this.http
+            .get("app/heroes/?name=" + term)
+            .map(function (r) { return r.json().data; });
+    };
+    HeroSearchService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], HeroSearchService);
+    return HeroSearchService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.HeroSearchService = HeroSearchService;
+//# sourceMappingURL=hero-search.service.js.map
