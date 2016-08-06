@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }            from '@angular/router';
-import { Observable }        from 'rxjs/Observable';
-import { Subject }           from 'rxjs/Subject';
-import { HeroSearchService } from './hero-search.service';
-import { Hero } from './hero';
+import { Observable }        from 'node_modules/rxjs/Observable';
+import { Subject }           from 'node_modules/rxjs/Subject';
+
+import { HeroSearchService } from 'app/services/hero-search/hero-search.service';
+import { Hero } from 'app/hero';
 
 @Component({
     selector: 'hero-search',
-    templateUrl: 'app/hero-search.component.html',
+    templateUrl: 'app/components/hero-search/hero-search.component.html',
     providers: [HeroSearchService],
-    styleUrls: ['styles.css', 'app/hero-search.component.css'],
+    styleUrls: ['styles.css', 'app/components/hero-search/hero-search.component.css'],
 })
 
 export class HeroSearchComponent implements OnInit {
@@ -22,7 +23,7 @@ export class HeroSearchComponent implements OnInit {
     search(term: string) { this.searchTerms.next(term); }
     ngOnInit() {
         this.heroes = this.searchTerms
-            .debounceTime(300)        // wait for 300ms pause in events
+            .debounceTime(300)        // wait for 300ms pause in eve
             .distinctUntilChanged()   // ignore if next search term is same as previous
             .switchMap(term => term   // switch to new observable each time
                 // return the http search observable

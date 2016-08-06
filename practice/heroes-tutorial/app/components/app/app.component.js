@@ -10,12 +10,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var hero_service_1 = require('./hero.service');
-var hero_detail_component_1 = require('./hero-detail.component');
-var dashboard_component_1 = require('./dashboard.component');
-var hero_search_component_1 = require('./hero-search.component');
-var heroes_component_1 = require('./heroes.component');
-require('./rxjs-extensions');
+var hero_service_1 = require('app/services/hero/hero.service');
+var hero_detail_component_1 = require('app/components/hero-detail/hero-detail.component');
+var dashboard_component_1 = require('app/components/dashboard/dashboard.component');
+var hero_search_component_1 = require('app/components/hero-search/hero-search.component');
+var heroes_component_1 = require('app/components/heroes/heroes.component');
+require('app/rxjs-extensions');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'Tour of Heroes';
@@ -23,8 +23,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-heroes',
-            templateUrl: 'app/app.component.html',
-            styleUrls: ['styles.css', 'app/app.component.css'],
+            templateUrl: 'app/components/app/app.component.html',
+            styleUrls: ['styles.css', 'app/components/app/app.component.css'],
             directives: [router_1.ROUTER_DIRECTIVES],
             providers: [
                 hero_service_1.HeroService

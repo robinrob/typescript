@@ -1,13 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, OnDestroy, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Hero } from './hero';
-import { HeroService } from './hero.service';
+import { Hero } from 'app/hero';
+import { HeroService } from 'app/services/hero/hero.service';
 
 @Component({
     selector: 'my-hero-detail',
-    templateUrl: 'app/hero-detail.component.html',
-    styleUrls: ['styles.css', 'app/hero-detail.component.css'],
+    templateUrl: 'app/components/hero-detail/hero-detail.component.html',
+    styleUrls: ['styles.css', 'app/components/hero-detail/hero-detail.component.css'],
 })
 
 export class HeroDetailComponent implements OnInit, OnDestroy {

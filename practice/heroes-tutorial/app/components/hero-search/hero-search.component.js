@@ -10,9 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var Observable_1 = require('rxjs/Observable');
-var Subject_1 = require('rxjs/Subject');
-var hero_search_service_1 = require('./hero-search.service');
+var Observable_1 = require('node_modules/rxjs/Observable');
+var Subject_1 = require('node_modules/rxjs/Subject');
+var hero_search_service_1 = require('app/services/hero-search/hero-search.service');
 var HeroSearchComponent = (function () {
     function HeroSearchComponent(heroSearchService, router) {
         this.heroSearchService = heroSearchService;
@@ -24,7 +24,7 @@ var HeroSearchComponent = (function () {
     HeroSearchComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.heroes = this.searchTerms
-            .debounceTime(300) // wait for 300ms pause in events
+            .debounceTime(300) // wait for 300ms pause in eve
             .distinctUntilChanged() // ignore if next search term is same as previous
             .switchMap(function (term) { return term // switch to new observable each time
             ? _this.heroSearchService.search(term)
@@ -42,9 +42,9 @@ var HeroSearchComponent = (function () {
     HeroSearchComponent = __decorate([
         core_1.Component({
             selector: 'hero-search',
-            templateUrl: 'app/hero-search.component.html',
+            templateUrl: 'app/components/hero-search/hero-search.component.html',
             providers: [hero_search_service_1.HeroSearchService],
-            styleUrls: ['styles.css', 'app/hero-search.component.css'],
+            styleUrls: ['styles.css', 'app/components/hero-search/hero-search.component.css'],
         }), 
         __metadata('design:paramtypes', [hero_search_service_1.HeroSearchService, router_1.Router])
     ], HeroSearchComponent);
