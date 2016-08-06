@@ -43,7 +43,8 @@ var HeroSearchComponent = (function () {
         core_1.Component({
             selector: 'hero-search',
             templateUrl: 'app/hero-search.component.html',
-            providers: [hero_search_service_1.HeroSearchService]
+            providers: [hero_search_service_1.HeroSearchService],
+            styleUrls: ['styles.css', 'app/hero-search.component.css'],
         }), 
         __metadata('design:paramtypes', [hero_search_service_1.HeroSearchService, router_1.Router])
     ], HeroSearchComponent);
