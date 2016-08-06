@@ -20,7 +20,9 @@ export class HeroesComponent implements OnInit {
 
     selectedHero: Hero;
 
-    addingHero: false;
+    addingHero = false;
+
+    error = null
 
     constructor(
         private router: Router,

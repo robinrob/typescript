@@ -18,6 +18,7 @@ var HeroesComponent = (function () {
         this.heroService = heroService;
         this.title = 'Tour of Heroes';
         this.addingHero = false;
+        this.error = null;
     }
     HeroesComponent.prototype.ngOnInit = function () {
         this.getHeroes();
